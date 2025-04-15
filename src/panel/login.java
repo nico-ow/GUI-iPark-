@@ -29,7 +29,11 @@ public class login extends javax.swing.JFrame {
     public login() {
         initComponents();
     }
-    
+     Color lightGray = new Color(211, 211, 211);
+    Color lightBlue = new Color(173, 216, 230);
+    Color charcoal = new Color(28, 28, 28);
+    Color teal = new Color(0, 128, 128);
+
     
     
     public String[] loginAcc(String email, String password) {
@@ -37,7 +41,7 @@ public class login extends javax.swing.JFrame {
         connectDB con = new connectDB();
 
         try {
-            String query = "SELECT * FROM tbl_user WHERE u_email = ? AND u_password = ?";
+            String query = "SELECT * FROM user WHERE u_email = ? AND u_password = ?";
             PreparedStatement pstmt = con.getConnection().prepareStatement(query);
             pstmt.setString(1, email.trim());
             pstmt.setString(2, password.trim());
@@ -56,7 +60,7 @@ public class login extends javax.swing.JFrame {
     public String[] getUserDetails(String email) {
     connectDB con = new connectDB();
     try {
-        String query = "SELECT u_id, u_firstname, u_lastname, u_email, u_contactnumber, u_type, u_status FROM tbl_user WHERE u_email = ?";
+        String query = "SELECT u_id, u_firstname, u_lastname, u_email, u_contactnumber, u_type, u_status FROM user WHERE u_email = ?";
         PreparedStatement pstmt = con.getConnection().prepareStatement(query);
         pstmt.setString(1, email.trim()); // Set email as the query parameter
         ResultSet resultSet = pstmt.executeQuery();
@@ -95,12 +99,14 @@ public class login extends javax.swing.JFrame {
         password = new javax.swing.JPasswordField();
         logintext = new javax.swing.JLabel();
         registerbutton = new javax.swing.JLabel();
-        loginbutton = new javax.swing.JButton();
         forgotpassword = new javax.swing.JLabel();
         emailtext = new javax.swing.JLabel();
         passtext = new javax.swing.JLabel();
         requireduser = new javax.swing.JLabel();
         requiredpass = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        login = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
@@ -123,51 +129,72 @@ public class login extends javax.swing.JFrame {
                 usernameActionPerformed(evt);
             }
         });
-        jPanel2.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 240, 36));
+        jPanel2.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 240, 36));
 
         password.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 passwordFocusLost(evt);
             }
         });
-        jPanel2.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 240, 36));
+        jPanel2.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 240, 36));
 
-        logintext.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        logintext.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        logintext.setForeground(new java.awt.Color(173, 216, 230));
         logintext.setText("Login");
-        jPanel2.add(logintext, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        jPanel2.add(logintext, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, -1));
 
-        registerbutton.setText("Don't have an account? Register here");
+        registerbutton.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        registerbutton.setForeground(new java.awt.Color(0, 153, 153));
+        registerbutton.setText(" Register here");
         registerbutton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 registerbuttonMouseClicked(evt);
             }
         });
-        jPanel2.add(registerbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, -1, -1));
+        jPanel2.add(registerbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, -1, -1));
 
-        loginbutton.setBackground(new java.awt.Color(241, 185, 185));
-        loginbutton.setText("Login");
-        loginbutton.setBorderPainted(false);
-        loginbutton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginbuttonActionPerformed(evt);
+        forgotpassword.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        forgotpassword.setText("Forgot password");
+        jPanel2.add(forgotpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 90, -1));
+
+        emailtext.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        emailtext.setText("Email");
+        jPanel2.add(emailtext, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, -1, -1));
+
+        passtext.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        passtext.setText("Password");
+        jPanel2.add(passtext, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, -1));
+        jPanel2.add(requireduser, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 240, 10));
+        jPanel2.add(requiredpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 240, 10));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel2.setText("Don't have an account?");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 350, -1, -1));
+
+        login.setBackground(new java.awt.Color(173, 216, 230));
+        login.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                loginMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                loginMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                loginMouseExited(evt);
             }
         });
-        jPanel2.add(loginbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 240, -1));
+        login.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        forgotpassword.setText("Forgot password");
-        jPanel2.add(forgotpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 96, -1));
+        jLabel3.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel3.setText("Login");
+        login.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 2, -1, -1));
 
-        emailtext.setText("Email");
-        jPanel2.add(emailtext, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
+        jPanel2.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 100, 20));
 
-        passtext.setText("Password");
-        jPanel2.add(passtext, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
-        jPanel2.add(requireduser, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 225, 10));
-        jPanel2.add(requiredpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 240, 13));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 460, 380));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 600, 480));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 480));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 380));
 
         pack();
         setLocationRelativeTo(null);
@@ -222,8 +249,8 @@ password.repaint();
         this.dispose();
     }//GEN-LAST:event_registerbuttonMouseClicked
 
-    private void loginbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginbuttonActionPerformed
-        String user = username.getText().trim();
+    private void loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseClicked
+      String user = username.getText().trim();
 String pass = password.getText().trim();
 
 if (user.isEmpty() || pass.isEmpty()) {
@@ -270,7 +297,7 @@ try {
     if (accType != null) {
         if ("Admin".equalsIgnoreCase(accType)) {
             new adminDB().setVisible(true);
-        } else if ("Employee".equalsIgnoreCase(accType)) {
+        } else if ("Customer".equalsIgnoreCase(accType)) {
             new UserDB().setVisible(true);
         } else {
             JOptionPane.showMessageDialog(this, "Unknown user type!", "Login Error", JOptionPane.ERROR_MESSAGE);
@@ -287,10 +314,16 @@ try {
     JOptionPane.showMessageDialog(this, "Error during login: " + e.getMessage(), "Login Error", JOptionPane.ERROR_MESSAGE);
     e.printStackTrace();
 }
+  
+    }//GEN-LAST:event_loginMouseClicked
 
+    private void loginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseEntered
+         login.setBackground(lightGray);
+    }//GEN-LAST:event_loginMouseEntered
 
-
-    }//GEN-LAST:event_loginbuttonActionPerformed
+    private void loginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseExited
+        login.setBackground(lightBlue);
+    }//GEN-LAST:event_loginMouseExited
 
     /**
      * @param args the command line arguments
@@ -331,9 +364,11 @@ try {
     private javax.swing.JLabel emailtext;
     private javax.swing.JLabel forgotpassword;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JButton loginbutton;
+    private javax.swing.JPanel login;
     private javax.swing.JLabel logintext;
     private javax.swing.JLabel passtext;
     private javax.swing.JPasswordField password;

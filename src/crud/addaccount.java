@@ -225,7 +225,7 @@ public class addaccount extends javax.swing.JFrame {
         jPanel2.add(emailtext, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 54, -1));
 
         requiredemail.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jPanel2.add(requiredemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 190, 10));
+        jPanel2.add(requiredemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 190, 10));
 
         contactnumber.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         contactnumber.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -267,7 +267,7 @@ public class addaccount extends javax.swing.JFrame {
         });
         jPanel2.add(backlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, -1));
 
-        role.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "(Choose account type)", "Admin", "Employee", "" }));
+        role.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "(Choose account type)", "Admin", "Customer", " " }));
         role.setOpaque(false);
         role.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -458,7 +458,7 @@ if (signUpValidation()) {
     }//GEN-LAST:event_passwordFocusLost
 
     private void backloginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backloginMouseClicked
-        login log = new login();
+        accountmanager log = new accountmanager();
 
         log.setVisible(true);
         this.dispose();

@@ -35,7 +35,7 @@ public class accountmanager extends javax.swing.JFrame {
         
         try{
             connectDB dbc = new connectDB();
-            ResultSet rs = dbc.getData("SELECT * FROM tbl_user");           
+            ResultSet rs = dbc.getData("SELECT * FROM user");           
             overview.setModel(DbUtils.resultSetToTableModel(rs));
             
             
@@ -96,7 +96,7 @@ public class accountmanager extends javax.swing.JFrame {
 
         jPanel5.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 790, 270));
 
-        activate.setText("Activate");
+        activate.setText("ACTIVATE");
         activate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 activateActionPerformed(evt);
@@ -110,7 +110,7 @@ public class accountmanager extends javax.swing.JFrame {
                 refreshActionPerformed(evt);
             }
         });
-        jPanel5.add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, -1));
+        jPanel5.add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
 
         addaccount.setText("ADD ACCOUNT");
         addaccount.addActionListener(new java.awt.event.ActionListener() {
@@ -118,7 +118,7 @@ public class accountmanager extends javax.swing.JFrame {
                 addaccountActionPerformed(evt);
             }
         });
-        jPanel5.add(addaccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 170, -1, -1));
+        jPanel5.add(addaccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, -1, -1));
 
         delete.setText("DELETE");
         delete.addActionListener(new java.awt.event.ActionListener() {
@@ -134,13 +134,13 @@ public class accountmanager extends javax.swing.JFrame {
                 editActionPerformed(evt);
             }
         });
-        jPanel5.add(edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 170, -1, -1));
+        jPanel5.add(edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 170, -1, -1));
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 830, 490));
 
         mbg.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 850, 510));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(240, 240, 240));
         jLabel4.setText("iPark");
         mbg.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 50, -1));
@@ -165,7 +165,7 @@ public class accountmanager extends javax.swing.JFrame {
                 jLabel8MouseClicked(evt);
             }
         });
-        mbg.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 460, -1, -1));
+        mbg.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel9.setText("ACCOUNT");
@@ -174,7 +174,7 @@ public class accountmanager extends javax.swing.JFrame {
                 jLabel9MouseClicked(evt);
             }
         });
-        mbg.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 80, 30));
+        mbg.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 170, 80, 30));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel10.setText("DASHBOARD");
@@ -183,7 +183,7 @@ public class accountmanager extends javax.swing.JFrame {
                 jLabel10MouseClicked(evt);
             }
         });
-        mbg.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 110, 30));
+        mbg.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 120, 110, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -234,7 +234,7 @@ public class accountmanager extends javax.swing.JFrame {
         
         connectDB con = new connectDB();
         
-        con.updateData("UPDATE tbl_user SET u_status = 'Active' WHERE u_id = '"+id+"'"); 
+        con.updateData("UPDATE user SET u_status = 'Active' WHERE u_id = '"+id+"'"); 
     }//GEN-LAST:event_activateActionPerformed
 
     private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
@@ -261,7 +261,7 @@ public class accountmanager extends javax.swing.JFrame {
 
             // Run SQL DELETE command here
             connectDB con = new connectDB();
-            String query = "DELETE FROM tbl_user WHERE u_id = '" + id + "'";
+            String query = "DELETE FROM user WHERE u_id = '" + id + "'";
             con.deleteData(query);
 
             // Refresh table

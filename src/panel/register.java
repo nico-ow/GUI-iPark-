@@ -25,13 +25,16 @@ public class register extends javax.swing.JFrame {
     public register() {
         initComponents();
     }
-    
+    Color lightGray = new Color(211, 211, 211);
+    Color lightBlue = new Color(173, 216, 230);
+    Color charcoal = new Color(28, 28, 28);
+    Color teal = new Color(0, 128, 128);
     private boolean emailExists(String email) {
 
         connectDB con = new connectDB();
 
         try {
-            String query = "SELECT * FROM tbl_user WHERE u_email = ?";
+            String query = "SELECT * FROM user WHERE u_email = ?";
             PreparedStatement pstmt = con.getConnection().prepareStatement(query);
             pstmt.setString(1, email.trim());
             ResultSet resultSet = pstmt.executeQuery();
@@ -71,7 +74,6 @@ public class register extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         firstname = new javax.swing.JTextField();
         logintext = new javax.swing.JLabel();
-        Signup = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         requiredfname = new javax.swing.JLabel();
         lastnametext = new javax.swing.JLabel();
@@ -86,6 +88,8 @@ public class register extends javax.swing.JFrame {
         passwordtext = new javax.swing.JLabel();
         requiredpassword = new javax.swing.JLabel();
         password = new javax.swing.JPasswordField();
+        Signup = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
         backlogin = new javax.swing.JLabel();
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -161,30 +165,18 @@ public class register extends javax.swing.JFrame {
         jPanel2.add(firstname, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 240, 30));
 
         logintext.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        logintext.setForeground(new java.awt.Color(173, 216, 230));
         logintext.setText("Signup");
         jPanel2.add(logintext, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
 
-        Signup.setBackground(new java.awt.Color(241, 185, 185));
-        Signup.setText("Signup");
-        Signup.setBorderPainted(false);
-        Signup.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                SignupFocusLost(evt);
-            }
-        });
-        Signup.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SignupActionPerformed(evt);
-            }
-        });
-        jPanel2.add(Signup, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 430, 80, 19));
-
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel1.setText("First Name");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
 
         requiredfname.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jPanel2.add(requiredfname, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 240, 10));
+        jPanel2.add(requiredfname, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 240, 10));
 
+        lastnametext.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         lastnametext.setText("Last Name");
         jPanel2.add(lastnametext, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
 
@@ -202,7 +194,7 @@ public class register extends javax.swing.JFrame {
         jPanel2.add(lastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 240, 30));
 
         requiredlname.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jPanel2.add(requiredlname, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 240, 10));
+        jPanel2.add(requiredlname, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 240, 10));
 
         email.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         email.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -217,6 +209,7 @@ public class register extends javax.swing.JFrame {
         });
         jPanel2.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 240, 30));
 
+        emailtext.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         emailtext.setText("Email");
         jPanel2.add(emailtext, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 240, -1));
 
@@ -236,17 +229,19 @@ public class register extends javax.swing.JFrame {
         });
         jPanel2.add(contactnumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 240, 30));
 
+        cnumbertext.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         cnumbertext.setText("Contact Number");
         jPanel2.add(cnumbertext, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, -1, -1));
 
         requiredcnumber.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         jPanel2.add(requiredcnumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 240, 10));
 
+        passwordtext.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         passwordtext.setText("Password");
         jPanel2.add(passwordtext, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, -1, -1));
 
         requiredpassword.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jPanel2.add(requiredpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 240, 10));
+        jPanel2.add(requiredpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 240, 10));
 
         password.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -254,6 +249,26 @@ public class register extends javax.swing.JFrame {
             }
         });
         jPanel2.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 240, 30));
+
+        Signup.setBackground(new java.awt.Color(173, 216, 230));
+        Signup.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SignupMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SignupMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                SignupMouseExited(evt);
+            }
+        });
+        Signup.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel4.setText("Signup");
+        Signup.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 3, -1, -1));
+
+        jPanel2.add(Signup, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 80, 20));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(453, -9, 320, 490));
 
@@ -274,32 +289,6 @@ public class register extends javax.swing.JFrame {
     private void firstnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstnameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_firstnameActionPerformed
-
-    private void SignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignupActionPerformed
-        RegisterSuccess.pack();
-RegisterError.pack();
-
-if (signUpValidation()) {
-
-    connectDB con = new connectDB();
-
-    con.insertData("INSERT INTO tbl_user (u_firstname, u_lastname, u_email, u_contactnumber, u_password, u_type, u_status) " +
-            "VALUES ('" + firstname.getText() + "','" + lastname.getText() + "','" + email.getText() + "'," +
-            "'" + contactnumber.getText() + "','" + password.getText() + "', 'User', 'Pending')");
-
-    JOptionPane.showMessageDialog(this, "Registration successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
-
-    login lg = new login();
-    lg.setVisible(true);
-    this.dispose();
-
-} else {
-
-    RegisterError.setVisible(true);
-    RegisterError.setLocationRelativeTo(null);
-
-}
-    }//GEN-LAST:event_SignupActionPerformed
 
     private void firstnameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_firstnameFocusLost
 Font smallFont = new Font("Arial", Font.PLAIN, 10);
@@ -437,10 +426,6 @@ password.repaint();
         this.dispose();
     }//GEN-LAST:event_backloginMouseClicked
 
-    private void SignupFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_SignupFocusLost
-        
-    }//GEN-LAST:event_SignupFocusLost
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         RegisterError.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -448,6 +433,40 @@ password.repaint();
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void SignupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SignupMouseClicked
+         RegisterSuccess.pack();
+        RegisterError.pack();
+
+        if (signUpValidation()) {
+
+            connectDB con = new connectDB();
+
+            con.insertData("INSERT INTO user (u_firstname, u_lastname, u_email, u_contactnumber, u_password, u_type, u_status) " +
+                "VALUES ('" + firstname.getText() + "','" + lastname.getText() + "','" + email.getText() + "'," +
+                "'" + contactnumber.getText() + "','" + password.getText() + "', 'User', 'Pending')");
+
+            JOptionPane.showMessageDialog(this, "Registration successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
+
+            login lg = new login();
+            lg.setVisible(true);
+            this.dispose();
+
+        } else {
+
+            RegisterError.setVisible(true);
+            RegisterError.setLocationRelativeTo(null);
+
+        }
+    }//GEN-LAST:event_SignupMouseClicked
+
+    private void SignupMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SignupMouseEntered
+        Signup.setBackground(lightGray);
+    }//GEN-LAST:event_SignupMouseEntered
+
+    private void SignupMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SignupMouseExited
+         Signup.setBackground(lightBlue);
+    }//GEN-LAST:event_SignupMouseExited
 
     
     private boolean signUpValidation() {
@@ -599,7 +618,7 @@ String password1 = password.getText();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog RegisterError;
     private javax.swing.JDialog RegisterSuccess;
-    private javax.swing.JButton Signup;
+    private javax.swing.JPanel Signup;
     private javax.swing.JLabel backlogin;
     private javax.swing.JLabel cnumbertext;
     private javax.swing.JTextField contactnumber;
@@ -611,6 +630,7 @@ String password1 = password.getText();
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

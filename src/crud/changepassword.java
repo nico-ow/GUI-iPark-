@@ -162,7 +162,7 @@ public class changepassword extends javax.swing.JFrame {
         jPanel2.add(requiredcnumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 190, 10));
 
         idfieldtext1.setText("ID:");
-        jPanel2.add(idfieldtext1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, -1, -1));
+        jPanel2.add(idfieldtext1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, -1, -1));
 
         Signup.setBackground(new java.awt.Color(241, 185, 185));
         Signup.setText("Edit");
@@ -207,15 +207,15 @@ public class changepassword extends javax.swing.JFrame {
         jPanel2.add(requiredpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 190, 10));
         jPanel2.add(idfieldtext, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 54, 42, -1));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 670, 350));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 670, 350));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 709, Short.MAX_VALUE)
+            .addGap(0, 689, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 709, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 689, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

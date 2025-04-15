@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2025 at 06:10 AM
+-- Generation Time: Apr 14, 2025 at 10:12 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -18,16 +18,16 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `pureclean`
+-- Database: `ipark`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_user`
+-- Table structure for table `user`
 --
 
-CREATE TABLE `tbl_user` (
+CREATE TABLE `user` (
   `u_id` int(20) NOT NULL,
   `u_firstname` varchar(50) NOT NULL,
   `u_lastname` varchar(50) NOT NULL,
@@ -39,22 +39,21 @@ CREATE TABLE `tbl_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tbl_user`
+-- Dumping data for table `user`
 --
 
-INSERT INTO `tbl_user` (`u_id`, `u_firstname`, `u_lastname`, `u_email`, `u_contactnumber`, `u_password`, `u_type`, `u_status`) VALUES
-(1, 'Vienz', 'Libradilla', 'test@gmail.com', '09123456789', 'valentino', 'Admin', 'Active'),
-(2, 'john', 'doe', 'doe@gmail.com', '09123456789', 'test', 'user', 'Active'),
-(3, 'tino', 'luck', 'sdfsdf@gmail.com', '09123456789', '12345678', 'User', 'Pending');
+INSERT INTO `user` (`u_id`, `u_firstname`, `u_lastname`, `u_email`, `u_contactnumber`, `u_password`, `u_type`, `u_status`) VALUES
+(1, 'Nico', 'Deiparine', 'nicodeiparine14@gmail.com', '09665214786', '09665214786n', 'Admin', 'Active'),
+(2, 'Janley', 'Deiparine', 'deiparinenico17@gmail.com', '09422980257', '09422980257n', 'User', 'Active');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `tbl_user`
+-- Indexes for table `user`
 --
-ALTER TABLE `tbl_user`
+ALTER TABLE `user`
   ADD PRIMARY KEY (`u_id`);
 
 --
@@ -62,10 +61,10 @@ ALTER TABLE `tbl_user`
 --
 
 --
--- AUTO_INCREMENT for table `tbl_user`
+-- AUTO_INCREMENT for table `user`
 --
-ALTER TABLE `tbl_user`
-  MODIFY `u_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `user`
+  MODIFY `u_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

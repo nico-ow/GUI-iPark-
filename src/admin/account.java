@@ -84,19 +84,19 @@ public class account extends javax.swing.JFrame {
 
         cnum.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         cnum.setText("Contact No");
-        jPanel5.add(cnum, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 200, 20));
+        jPanel5.add(cnum, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 300, 20));
 
         role.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         role.setText("Role");
-        jPanel5.add(role, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 200, 20));
+        jPanel5.add(role, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 300, 20));
 
         email.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         email.setText("Email");
-        jPanel5.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 200, 20));
+        jPanel5.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 300, 20));
 
         name.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         name.setText("Name");
-        jPanel5.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 200, 20));
+        jPanel5.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 300, 20));
 
         changepassword.setText("Change Password");
         changepassword.addActionListener(new java.awt.event.ActionListener() {
@@ -110,7 +110,7 @@ public class account extends javax.swing.JFrame {
 
         mbg.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 850, 510));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(240, 240, 240));
         jLabel4.setText("iPark");
         mbg.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 50, -1));
