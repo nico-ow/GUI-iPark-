@@ -8,6 +8,7 @@ package admin;
 import config.session;
 import crud.changepassword;
 import crud.editaccount;
+import java.awt.Color;
 import panel.login;
 
 /**
@@ -24,6 +25,11 @@ public class account extends javax.swing.JFrame {
         accountInformation();
         
     }
+    Color lightGray = new Color(211, 211, 211);
+    Color lightBlue = new Color(173, 216, 230);
+    Color charcoal = new Color(28, 28, 28);
+    Color teal = new Color(0, 128, 128);
+    Color white = new Color(240,240,240);
     public void accountInformation() {
 
         session sess = session.getInstance();
@@ -60,11 +66,15 @@ public class account extends javax.swing.JFrame {
         role = new javax.swing.JLabel();
         email = new javax.swing.JLabel();
         name = new javax.swing.JLabel();
-        changepassword = new javax.swing.JButton();
+        change = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        profile = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        dashboard = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
+        account = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -80,7 +90,7 @@ public class account extends javax.swing.JFrame {
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         profilepic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-view-as-different-user-100.png"))); // NOI18N
-        jPanel5.add(profilepic, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+        jPanel5.add(profilepic, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
 
         cnum.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         cnum.setText("Contact No");
@@ -98,13 +108,23 @@ public class account extends javax.swing.JFrame {
         name.setText("Name");
         jPanel5.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 300, 20));
 
-        changepassword.setText("Change Password");
-        changepassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                changepasswordActionPerformed(evt);
+        change.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                changeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                changeMouseExited(evt);
             }
         });
-        jPanel5.add(changepassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, -1, 20));
+        change.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setText("Change Password");
+        change.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 3, -1, -1));
+
+        jPanel5.add(change, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 120, 20));
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 810, 470));
 
@@ -114,15 +134,6 @@ public class account extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(240, 240, 240));
         jLabel4.setText("iPark");
         mbg.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 50, -1));
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jLabel5.setText("PROFILE");
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel5MouseClicked(evt);
-            }
-        });
-        mbg.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 70, 30));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logout (2).png"))); // NOI18N
         jLabel8.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -137,6 +148,43 @@ public class account extends javax.swing.JFrame {
         });
         mbg.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, -1, -1));
 
+        profile.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                profileMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                profileMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                profileMouseExited(evt);
+            }
+        });
+        profile.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel5.setText("PROFILE");
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
+        profile.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 4, 70, 20));
+
+        mbg.add(profile, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 130, 30));
+
+        dashboard.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dashboardMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                dashboardMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                dashboardMouseExited(evt);
+            }
+        });
+        dashboard.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel9.setText("DASHBOARD");
         jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -144,7 +192,22 @@ public class account extends javax.swing.JFrame {
                 jLabel9MouseClicked(evt);
             }
         });
-        mbg.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 120, 110, 30));
+        dashboard.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 4, -1, 20));
+
+        mbg.add(dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 130, 30));
+
+        account.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                accountMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                accountMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                accountMouseExited(evt);
+            }
+        });
+        account.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel10.setText("ACCOUNT");
@@ -153,7 +216,9 @@ public class account extends javax.swing.JFrame {
                 jLabel10MouseClicked(evt);
             }
         });
-        mbg.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 170, 80, 30));
+        account.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 4, 80, 20));
+
+        mbg.add(account, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 130, 30));
 
         getContentPane().add(mbg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 510));
 
@@ -173,7 +238,7 @@ public class account extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel8FocusLost
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-        login log = new login();
+        adminDB log = new adminDB();
 
         log.setVisible(true);
         this.dispose();
@@ -187,14 +252,11 @@ public class account extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-        adminDB db = new adminDB();
-
-        db.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_jLabel9MouseClicked
 
-    private void changepasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changepasswordActionPerformed
-        changepassword acc = new changepassword(
+    private void changeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changeMouseClicked
+       changepassword acc = new changepassword(
         session.getU_id(), 
         session.getFirstName(), 
         session.getLastName(), 
@@ -202,10 +264,60 @@ public class account extends javax.swing.JFrame {
         session.getContact()
     );
         acc.setVisible(true);
+    }//GEN-LAST:event_changeMouseClicked
 
-        
-        
-    }//GEN-LAST:event_changepasswordActionPerformed
+    private void changeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changeMouseEntered
+        change.setBackground(lightGray);
+    }//GEN-LAST:event_changeMouseEntered
+
+    private void changeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changeMouseExited
+        change.setBackground(white);
+    }//GEN-LAST:event_changeMouseExited
+
+    private void profileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileMouseClicked
+        account acc = new account();
+
+        acc.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_profileMouseClicked
+
+    private void profileMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileMouseEntered
+        change.setBackground(lightGray);
+    }//GEN-LAST:event_profileMouseEntered
+
+    private void dashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardMouseClicked
+        adminDB db = new adminDB();
+
+        db.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_dashboardMouseClicked
+
+    private void dashboardMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardMouseEntered
+        dashboard.setBackground(lightGray);
+    }//GEN-LAST:event_dashboardMouseEntered
+
+    private void accountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountMouseClicked
+       accountmanager man = new accountmanager();
+
+        man.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_accountMouseClicked
+
+    private void accountMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountMouseEntered
+        account.setBackground(lightGray);
+    }//GEN-LAST:event_accountMouseEntered
+
+    private void accountMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountMouseExited
+         account.setBackground(white);
+    }//GEN-LAST:event_accountMouseExited
+
+    private void dashboardMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardMouseExited
+        dashboard.setBackground(white);
+    }//GEN-LAST:event_dashboardMouseExited
+
+    private void profileMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileMouseExited
+       profile.setBackground(white);
+    }//GEN-LAST:event_profileMouseExited
 
     /**
      * @param args the command line arguments
@@ -243,9 +355,12 @@ public class account extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton changepassword;
+    private javax.swing.JPanel account;
+    private javax.swing.JPanel change;
     private javax.swing.JLabel cnum;
+    private javax.swing.JPanel dashboard;
     private javax.swing.JLabel email;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -255,6 +370,7 @@ public class account extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel mbg;
     private javax.swing.JLabel name;
+    private javax.swing.JPanel profile;
     private javax.swing.JLabel profilepic;
     private javax.swing.JLabel role;
     // End of variables declaration//GEN-END:variables

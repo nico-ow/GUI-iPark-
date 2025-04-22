@@ -207,14 +207,14 @@ public class register extends javax.swing.JFrame {
                 emailActionPerformed(evt);
             }
         });
-        jPanel2.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 240, 30));
+        jPanel2.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 240, 30));
 
         emailtext.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         emailtext.setText("Email");
-        jPanel2.add(emailtext, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 240, -1));
+        jPanel2.add(emailtext, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 240, -1));
 
         requiredemail.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jPanel2.add(requiredemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 240, 10));
+        jPanel2.add(requiredemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 240, 10));
 
         contactnumber.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         contactnumber.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -227,28 +227,28 @@ public class register extends javax.swing.JFrame {
                 contactnumberActionPerformed(evt);
             }
         });
-        jPanel2.add(contactnumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 240, 30));
+        jPanel2.add(contactnumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 240, 30));
 
         cnumbertext.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         cnumbertext.setText("Contact Number");
-        jPanel2.add(cnumbertext, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, -1, -1));
+        jPanel2.add(cnumbertext, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
 
         requiredcnumber.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jPanel2.add(requiredcnumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 240, 10));
+        jPanel2.add(requiredcnumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 240, 10));
 
         passwordtext.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         passwordtext.setText("Password");
-        jPanel2.add(passwordtext, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, -1, -1));
+        jPanel2.add(passwordtext, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, -1, -1));
 
         requiredpassword.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jPanel2.add(requiredpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 240, 10));
+        jPanel2.add(requiredpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 240, 10));
 
         password.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 passwordFocusLost(evt);
             }
         });
-        jPanel2.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 240, 30));
+        jPanel2.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 240, 30));
 
         Signup.setBackground(new java.awt.Color(173, 216, 230));
         Signup.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -268,7 +268,7 @@ public class register extends javax.swing.JFrame {
         jLabel4.setText("Signup");
         Signup.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 3, -1, -1));
 
-        jPanel2.add(Signup, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 80, 20));
+        jPanel2.add(Signup, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 80, 20));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(453, -9, 320, 490));
 

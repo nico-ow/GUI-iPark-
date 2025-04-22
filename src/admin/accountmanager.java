@@ -13,6 +13,7 @@ import net.proteanit.sql.DbUtils;
 import panel.login;
 import crud.addaccount;
 import crud.editaccount;
+import java.awt.Color;
 
 /**
  *
@@ -20,9 +21,7 @@ import crud.editaccount;
  */
 public class accountmanager extends javax.swing.JFrame {
 
-    /**
-     * Creates new form accountmanager
-     */
+    
     public accountmanager() {
         initComponents();
         displayData();
@@ -30,7 +29,11 @@ public class accountmanager extends javax.swing.JFrame {
         addaccount acc = new addaccount();
         acc.setVisible(false);
     }
-    
+    Color lightGray = new Color(211, 211, 211);
+    Color lightBlue = new Color(173, 216, 230);
+    Color charcoal = new Color(28, 28, 28);
+    Color teal = new Color(0, 128, 128);
+    Color white = new Color(240,240,240);
     public void displayData(){
         
         try{
@@ -64,10 +67,14 @@ public class accountmanager extends javax.swing.JFrame {
         addaccount = new javax.swing.JButton();
         delete = new javax.swing.JButton();
         edit = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        profile = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        account = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
+        dashboard = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -102,7 +109,7 @@ public class accountmanager extends javax.swing.JFrame {
                 activateActionPerformed(evt);
             }
         });
-        jPanel5.add(activate, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 170, -1, -1));
+        jPanel5.add(activate, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, -1, -1));
 
         refresh.setText("REFRESH");
         refresh.addActionListener(new java.awt.event.ActionListener() {
@@ -110,7 +117,7 @@ public class accountmanager extends javax.swing.JFrame {
                 refreshActionPerformed(evt);
             }
         });
-        jPanel5.add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
+        jPanel5.add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, -1));
 
         addaccount.setText("ADD ACCOUNT");
         addaccount.addActionListener(new java.awt.event.ActionListener() {
@@ -118,7 +125,7 @@ public class accountmanager extends javax.swing.JFrame {
                 addaccountActionPerformed(evt);
             }
         });
-        jPanel5.add(addaccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, -1, -1));
+        jPanel5.add(addaccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(503, 170, -1, -1));
 
         delete.setText("DELETE");
         delete.addActionListener(new java.awt.event.ActionListener() {
@@ -126,7 +133,7 @@ public class accountmanager extends javax.swing.JFrame {
                 deleteActionPerformed(evt);
             }
         });
-        jPanel5.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 170, -1, -1));
+        jPanel5.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 170, -1, -1));
 
         edit.setText("EDIT");
         edit.addActionListener(new java.awt.event.ActionListener() {
@@ -134,7 +141,11 @@ public class accountmanager extends javax.swing.JFrame {
                 editActionPerformed(evt);
             }
         });
-        jPanel5.add(edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 170, -1, -1));
+        jPanel5.add(edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 170, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel6.setText("ACCOUNT MANAGER");
+        jPanel5.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 830, 490));
 
@@ -144,15 +155,6 @@ public class accountmanager extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(240, 240, 240));
         jLabel4.setText("iPark");
         mbg.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 50, -1));
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jLabel5.setText("PROFILE");
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel5MouseClicked(evt);
-            }
-        });
-        mbg.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 70, 30));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logout (2).png"))); // NOI18N
         jLabel8.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -167,6 +169,43 @@ public class accountmanager extends javax.swing.JFrame {
         });
         mbg.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, -1, -1));
 
+        profile.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                profileMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                profileMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                profileMouseExited(evt);
+            }
+        });
+        profile.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel5.setText("PROFILE");
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
+        profile.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 4, -1, 20));
+
+        mbg.add(profile, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 130, 30));
+
+        account.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                accountMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                accountMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                accountMouseExited(evt);
+            }
+        });
+        account.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel9.setText("ACCOUNT");
         jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -174,7 +213,22 @@ public class accountmanager extends javax.swing.JFrame {
                 jLabel9MouseClicked(evt);
             }
         });
-        mbg.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 170, 80, 30));
+        account.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 4, 80, 20));
+
+        mbg.add(account, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 130, 30));
+
+        dashboard.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dashboardMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                dashboardMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                dashboardMouseExited(evt);
+            }
+        });
+        dashboard.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel10.setText("DASHBOARD");
@@ -182,8 +236,13 @@ public class accountmanager extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel10MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel10MouseEntered(evt);
+            }
         });
-        mbg.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 120, 110, 30));
+        dashboard.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 4, 100, 20));
+
+        mbg.add(dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 130, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -205,9 +264,7 @@ public class accountmanager extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        account acc = new account();
-
-        acc.setVisible(true);
+      
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel8FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jLabel8FocusLost
@@ -215,7 +272,7 @@ public class accountmanager extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel8FocusLost
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-        login log = new login();
+        adminDB log = new adminDB();
 
         log.setVisible(true);
         this.dispose();
@@ -272,17 +329,11 @@ public class accountmanager extends javax.swing.JFrame {
     }//GEN-LAST:event_deleteActionPerformed
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-        accountmanager man = new accountmanager();
-
-        man.setVisible(true);
-        this.dispose();
+      
     }//GEN-LAST:event_jLabel9MouseClicked
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
-        adminDB db = new adminDB();
-
-        db.setVisible(true);
-        this.dispose();
+       
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
@@ -306,6 +357,54 @@ public class accountmanager extends javax.swing.JFrame {
 
         eda.setVisible(true);
     }//GEN-LAST:event_editActionPerformed
+
+    private void dashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardMouseClicked
+        adminDB db = new adminDB();
+
+        db.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_dashboardMouseClicked
+
+    private void profileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileMouseClicked
+         account acc = new account();
+
+         acc.setVisible(true);
+    }//GEN-LAST:event_profileMouseClicked
+
+    private void accountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountMouseClicked
+        accountmanager man = new accountmanager();
+
+        man.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_accountMouseClicked
+
+    private void jLabel10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel10MouseEntered
+
+    private void dashboardMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardMouseEntered
+        dashboard.setBackground(lightGray);
+    }//GEN-LAST:event_dashboardMouseEntered
+
+    private void dashboardMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardMouseExited
+         dashboard.setBackground(white);;
+    }//GEN-LAST:event_dashboardMouseExited
+
+    private void profileMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileMouseEntered
+        profile.setBackground(lightGray);
+    }//GEN-LAST:event_profileMouseEntered
+
+    private void profileMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileMouseExited
+        profile.setBackground(white);
+    }//GEN-LAST:event_profileMouseExited
+
+    private void accountMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountMouseEntered
+       account.setBackground(lightGray);
+    }//GEN-LAST:event_accountMouseEntered
+
+    private void accountMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountMouseExited
+        account.setBackground(white);
+    }//GEN-LAST:event_accountMouseExited
 
     /**
      * @param args the command line arguments
@@ -343,13 +442,16 @@ public class accountmanager extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel account;
     private javax.swing.JButton activate;
     private javax.swing.JButton addaccount;
+    private javax.swing.JPanel dashboard;
     private javax.swing.JButton delete;
     private javax.swing.JButton edit;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -357,6 +459,7 @@ public class accountmanager extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel mbg;
     private javax.swing.JTable overview;
+    private javax.swing.JPanel profile;
     private javax.swing.JButton refresh;
     // End of variables declaration//GEN-END:variables
 }

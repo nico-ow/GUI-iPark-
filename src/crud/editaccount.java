@@ -20,9 +20,6 @@ import javax.swing.JOptionPane;
  */
 public class editaccount extends javax.swing.JFrame {
 
-    /**
-     * Creates new form editaccount
-     */
     public editaccount(String id, String fname, String lname, String eMail, String pnum) {
         initComponents();
         
@@ -32,6 +29,10 @@ public class editaccount extends javax.swing.JFrame {
         contactnumber.setText(pnum);
         email.setText(eMail);
     }
+    Color lightGray = new Color(211, 211, 211);
+    Color lightBlue = new Color(173, 216, 230);
+    Color charcoal = new Color(28, 28, 28);
+    Color teal = new Color(0, 128, 128);
 
   
     
@@ -40,7 +41,7 @@ public class editaccount extends javax.swing.JFrame {
         connectDB con = new connectDB();
 
         try {
-            String query = "SELECT * FROM tbl_user WHERE u_email = ?";
+            String query = "SELECT * FROM user WHERE u_email = ?";
             PreparedStatement pstmt = con.getConnection().prepareStatement(query);
             pstmt.setString(1, email.trim());
             ResultSet resultSet = pstmt.executeQuery();
@@ -117,7 +118,7 @@ public class editaccount extends javax.swing.JFrame {
         jPanel2.add(firstname, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 196, 30));
 
         requiredfname.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jPanel2.add(requiredfname, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 180, 10));
+        jPanel2.add(requiredfname, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 180, 10));
 
         lastnametext.setText("Last Name");
         jPanel2.add(lastnametext, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, -1, -1));
@@ -136,7 +137,7 @@ public class editaccount extends javax.swing.JFrame {
         jPanel2.add(lastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 196, 30));
 
         requiredlname.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jPanel2.add(requiredlname, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, 190, 10));
+        jPanel2.add(requiredlname, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 140, 190, 10));
 
         email.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         email.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -155,7 +156,7 @@ public class editaccount extends javax.swing.JFrame {
         jPanel2.add(emailtext, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 54, -1));
 
         requiredemail.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jPanel2.add(requiredemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 190, 10));
+        jPanel2.add(requiredemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 190, 10));
 
         contactnumber.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         contactnumber.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -174,7 +175,7 @@ public class editaccount extends javax.swing.JFrame {
         jPanel2.add(cnumbertext, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, -1, -1));
 
         requiredcnumber.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jPanel2.add(requiredcnumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 190, 10));
+        jPanel2.add(requiredcnumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 190, 10));
 
         idfieldtext.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         idfieldtext.setText("ID:");
@@ -327,7 +328,7 @@ public class editaccount extends javax.swing.JFrame {
 
             connectDB con = new connectDB();
 
-            con.updateData("UPDATE tbl_user SET u_firstname = '" + firstname.getText() + "', u_lastname = '" + lastname.getText() + "', u_email = '" + email.getText() + "',"
+            con.updateData("UPDATE user SET u_firstname = '" + firstname.getText() + "', u_lastname = '" + lastname.getText() + "', u_email = '" + email.getText() + "',"
                     + "u_contactnumber = '" + contactnumber.getText() + "' WHERE u_id = '"+idfieldtext.getText()+"'");
 
             JOptionPane.showMessageDialog(this, "Account's Information Updated Successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);

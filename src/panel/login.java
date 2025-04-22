@@ -29,7 +29,7 @@ public class login extends javax.swing.JFrame {
     public login() {
         initComponents();
     }
-     Color lightGray = new Color(211, 211, 211);
+    Color lightGray = new Color(211, 211, 211);
     Color lightBlue = new Color(173, 216, 230);
     Color charcoal = new Color(28, 28, 28);
     Color teal = new Color(0, 128, 128);
@@ -155,6 +155,13 @@ public class login extends javax.swing.JFrame {
 
         forgotpassword.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         forgotpassword.setText("Forgot password");
+        forgotpassword.addHierarchyBoundsListener(new java.awt.event.HierarchyBoundsListener() {
+            public void ancestorMoved(java.awt.event.HierarchyEvent evt) {
+                forgotpasswordAncestorMoved(evt);
+            }
+            public void ancestorResized(java.awt.event.HierarchyEvent evt) {
+            }
+        });
         jPanel2.add(forgotpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 90, -1));
 
         emailtext.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -297,7 +304,7 @@ try {
     if (accType != null) {
         if ("Admin".equalsIgnoreCase(accType)) {
             new adminDB().setVisible(true);
-        } else if ("Customer".equalsIgnoreCase(accType)) {
+        } else if ("User".equalsIgnoreCase(accType)) {
             new UserDB().setVisible(true);
         } else {
             JOptionPane.showMessageDialog(this, "Unknown user type!", "Login Error", JOptionPane.ERROR_MESSAGE);
@@ -324,6 +331,10 @@ try {
     private void loginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseExited
         login.setBackground(lightBlue);
     }//GEN-LAST:event_loginMouseExited
+
+    private void forgotpasswordAncestorMoved(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_forgotpasswordAncestorMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_forgotpasswordAncestorMoved
 
     /**
      * @param args the command line arguments

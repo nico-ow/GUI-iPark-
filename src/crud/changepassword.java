@@ -17,9 +17,6 @@ import javax.swing.JOptionPane;
  */
 public class changepassword extends javax.swing.JFrame {
 
-    /**
-     * Creates new form changepassword
-     */
     public changepassword(String id, String fname, String lname, String eMail, String pnum) {
         initComponents();
         
@@ -36,6 +33,10 @@ public class changepassword extends javax.swing.JFrame {
     email.setEditable(false);
         
     }
+    Color lightGray = new Color(211, 211, 211);
+    Color lightBlue = new Color(173, 216, 230);
+    Color charcoal = new Color(28, 28, 28);
+    Color teal = new Color(0, 128, 128);
     
 
   
@@ -102,7 +103,7 @@ public class changepassword extends javax.swing.JFrame {
         jPanel2.add(firstname, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 196, 30));
 
         requiredfname.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jPanel2.add(requiredfname, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 180, 10));
+        jPanel2.add(requiredfname, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 180, 10));
 
         lastnametext.setText("Last Name");
         jPanel2.add(lastnametext, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, -1, -1));
@@ -121,7 +122,7 @@ public class changepassword extends javax.swing.JFrame {
         jPanel2.add(lastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 196, 30));
 
         requiredlname.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jPanel2.add(requiredlname, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 190, 10));
+        jPanel2.add(requiredlname, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 190, 10));
 
         email.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         email.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -204,7 +205,7 @@ public class changepassword extends javax.swing.JFrame {
         jPanel2.add(passwordtext, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, -1, -1));
 
         requiredpassword.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jPanel2.add(requiredpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 190, 10));
+        jPanel2.add(requiredpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, 190, 10));
         jPanel2.add(idfieldtext, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 54, 42, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 670, 350));

@@ -21,19 +21,21 @@ import panel.login;
  */
 public class addaccount extends javax.swing.JFrame {
 
-    /**
-     * Creates new form addaccount
-     */
+   
     public addaccount() {
         initComponents();
     }
+    Color lightGray = new Color(211, 211, 211);
+    Color lightBlue = new Color(173, 216, 230);
+    Color charcoal = new Color(28, 28, 28);
+    Color teal = new Color(0, 128, 128);
     
     private boolean emailExists(String email) {
 
         connectDB con = new connectDB();
 
         try {
-            String query = "SELECT * FROM tbl_user WHERE u_email = ?";
+            String query = "SELECT * FROM user WHERE u_email = ?";
             PreparedStatement pstmt = con.getConnection().prepareStatement(query);
             pstmt.setString(1, email.trim());
             ResultSet resultSet = pstmt.executeQuery();
@@ -267,7 +269,7 @@ public class addaccount extends javax.swing.JFrame {
         });
         jPanel2.add(backlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, -1));
 
-        role.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "(Choose account type)", "Admin", "Customer", " " }));
+        role.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "(Choose account type)", "Admin", "User", " " }));
         role.setOpaque(false);
         role.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -285,7 +287,7 @@ public class addaccount extends javax.swing.JFrame {
         jPanel2.add(passwordtext1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 210, -1, -1));
 
         requiredrole.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jPanel2.add(requiredrole, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 190, 10));
+        jPanel2.add(requiredrole, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, 190, 10));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 710, 340));
 
@@ -333,7 +335,7 @@ if (signUpValidation()) {
     // Get the selected item from the type dropdown
     String selectedType = role.getSelectedItem().toString(); 
 
-    con.insertData("INSERT INTO tbl_user (u_firstname, u_lastname, u_email, u_contactnumber, u_password, u_type, u_status) " +
+    con.insertData("INSERT INTO user (u_firstname, u_lastname, u_email, u_contactnumber, u_password, u_type, u_status) " +
         "VALUES ('" + firstname.getText() + "','" + lastname.getText() + "','" + email.getText() + "'," +
         "'" + contactnumber.getText() + "','" + password.getText() + "', '" + selectedType + "', 'Pending')");
 

@@ -6,6 +6,7 @@
 package admin;
 
 import config.connectDB;
+import java.awt.Color;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import net.proteanit.sql.DbUtils;
@@ -26,7 +27,11 @@ public class adminDB extends javax.swing.JFrame {
         
         displayData();
     }
-    
+    Color lightGray = new Color(211, 211, 211);
+    Color lightBlue = new Color(173, 216, 230);
+    Color charcoal = new Color(28, 28, 28);
+    Color teal = new Color(0, 128, 128);
+    Color white = new Color(240,240,240);
     public void displayData(){
         
         try{
@@ -64,10 +69,12 @@ public class adminDB extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        exit = new javax.swing.JLabel();
+        profile = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
+        dashboard = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        accounts = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -141,36 +148,31 @@ public class adminDB extends javax.swing.JFrame {
         jLabel4.setText("iPark");
         mbg.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 50, -1));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jLabel5.setText("ACCOUNT");
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel5MouseClicked(evt);
-            }
-        });
-        mbg.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 420, 90, 30));
-
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logout (2).png"))); // NOI18N
-        jLabel8.addFocusListener(new java.awt.event.FocusAdapter() {
+        exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logout (2).png"))); // NOI18N
+        exit.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                jLabel8FocusLost(evt);
+                exitFocusLost(evt);
             }
         });
-        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+        exit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel8MouseClicked(evt);
+                exitMouseClicked(evt);
             }
         });
-        mbg.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, -1, -1));
+        mbg.add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, -1, -1));
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jLabel9.setText("DASHBOARD");
-        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+        profile.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel9MouseClicked(evt);
+                profileMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                profileMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                profileMouseExited(evt);
             }
         });
-        mbg.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 120, 110, 30));
+        profile.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel10.setText("PROFILE");
@@ -179,16 +181,57 @@ public class adminDB extends javax.swing.JFrame {
                 jLabel10MouseClicked(evt);
             }
         });
-        mbg.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 200, -1, 30));
+        profile.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 3, -1, -1));
+
+        mbg.add(profile, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, 130, 30));
+
+        dashboard.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dashboardMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                dashboardMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                dashboardMouseExited(evt);
+            }
+        });
+        dashboard.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel9.setText("DASHBOARD");
+        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel9MouseClicked(evt);
+            }
+        });
+        dashboard.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 4, -1, 20));
+
+        mbg.add(dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 130, 30));
+
+        accounts.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                accountsMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                accountsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                accountsMouseExited(evt);
+            }
+        });
+        accounts.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jLabel11.setText("ACCOUNT");
+        jLabel11.setText("ACCOUNTS");
         jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel11MouseClicked(evt);
             }
         });
-        mbg.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 160, 90, 30));
+        accounts.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 3, -1, -1));
+
+        mbg.add(accounts, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 130, 30));
 
         getContentPane().add(mbg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 510));
 
@@ -196,42 +239,72 @@ public class adminDB extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel8FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jLabel8FocusLost
+    private void exitFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_exitFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel8FocusLost
+    }//GEN-LAST:event_exitFocusLost
 
-    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+    private void exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseClicked
         login log = new login();
 
         log.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jLabel8MouseClicked
-
-    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        account acc = new account();
-
-        acc.setVisible(true);
-        this.dispose();    }//GEN-LAST:event_jLabel5MouseClicked
+    }//GEN-LAST:event_exitMouseClicked
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
-        account acc = new account();
-
-        acc.setVisible(true);
+        
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
-        accountmanager man = new accountmanager();
-
-        man.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_jLabel11MouseClicked
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-        adminDB db = new adminDB();
+        
+    }//GEN-LAST:event_jLabel9MouseClicked
+
+    private void dashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardMouseClicked
+       adminDB db = new adminDB();
 
         db.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jLabel9MouseClicked
+    }//GEN-LAST:event_dashboardMouseClicked
+
+    private void accountsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountsMouseClicked
+       accountmanager man = new accountmanager();
+
+        man.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_accountsMouseClicked
+
+    private void profileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileMouseClicked
+       account acc = new account();
+
+        acc.setVisible(true);
+    }//GEN-LAST:event_profileMouseClicked
+
+    private void dashboardMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardMouseEntered
+        dashboard.setBackground(lightGray);
+    }//GEN-LAST:event_dashboardMouseEntered
+
+    private void dashboardMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardMouseExited
+       dashboard.setBackground(white);
+    }//GEN-LAST:event_dashboardMouseExited
+
+    private void accountsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountsMouseEntered
+        accounts.setBackground(lightGray);
+    }//GEN-LAST:event_accountsMouseEntered
+
+    private void accountsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountsMouseExited
+        accounts.setBackground(white);
+    }//GEN-LAST:event_accountsMouseExited
+
+    private void profileMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileMouseEntered
+        profile.setBackground(lightGray);
+    }//GEN-LAST:event_profileMouseEntered
+
+    private void profileMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileMouseExited
+        profile.setBackground(white);
+    }//GEN-LAST:event_profileMouseExited
 
     /**
      * @param args the command line arguments
@@ -269,16 +342,17 @@ public class adminDB extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel accounts;
+    private javax.swing.JPanel dashboard;
+    private javax.swing.JLabel exit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -288,5 +362,6 @@ public class adminDB extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel mbg;
     private javax.swing.JTable overview;
+    private javax.swing.JPanel profile;
     // End of variables declaration//GEN-END:variables
 }

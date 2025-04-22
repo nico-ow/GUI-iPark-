@@ -6,6 +6,7 @@
 package panel;
 
 import admin.*;
+import java.awt.Color;
 
 /**
  *
@@ -19,6 +20,10 @@ public class UserDB extends javax.swing.JFrame {
     public UserDB() {
         initComponents();
     }
+    Color lightGray = new Color(211, 211, 211);
+    Color lightBlue = new Color(173, 216, 230);
+    Color charcoal = new Color(28, 28, 28);
+    Color teal = new Color(0, 128, 128);
 
     /**
      * This method is called from within the constructor to initialize the form.
