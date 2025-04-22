@@ -90,7 +90,7 @@ public class account extends javax.swing.JFrame {
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         profilepic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-view-as-different-user-100.png"))); // NOI18N
-        jPanel5.add(profilepic, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
+        jPanel5.add(profilepic, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, 130));
 
         cnum.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         cnum.setText("Contact No");
@@ -122,6 +122,7 @@ public class account extends javax.swing.JFrame {
         change.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Change Password");
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         change.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 3, -1, -1));
 
         jPanel5.add(change, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 120, 20));
