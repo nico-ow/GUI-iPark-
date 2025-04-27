@@ -97,7 +97,9 @@ public class editaccount extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        logintext.setBackground(new java.awt.Color(173, 216, 230));
         logintext.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        logintext.setForeground(new java.awt.Color(153, 153, 153));
         logintext.setText("EDIT INFORMATION");
         jPanel2.add(logintext, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
 

@@ -90,6 +90,8 @@ public class register extends javax.swing.JFrame {
         password = new javax.swing.JPasswordField();
         Signup = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
         backlogin = new javax.swing.JLabel();
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -269,6 +271,14 @@ public class register extends javax.swing.JFrame {
         Signup.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 3, -1, -1));
 
         jPanel2.add(Signup, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 80, 20));
+
+        jPanel4.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 460, 10, 10));
+
+        jPanel6.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 440, 10, 10));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(453, -9, 320, 490));
 
@@ -634,7 +644,9 @@ String password1 = password.getText();
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JTextField lastname;
     private javax.swing.JLabel lastnametext;
     private javax.swing.JLabel logintext;

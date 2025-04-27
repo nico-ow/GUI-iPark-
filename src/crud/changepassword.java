@@ -74,6 +74,9 @@ public class changepassword extends javax.swing.JFrame {
         idfieldtext = new javax.swing.JLabel();
         edit = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,9 +87,9 @@ public class changepassword extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         logintext.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        logintext.setForeground(new java.awt.Color(0, 153, 153));
+        logintext.setForeground(new java.awt.Color(153, 153, 153));
         logintext.setText("CHANGE PASSWORD");
-        jPanel2.add(logintext, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
+        jPanel2.add(logintext, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, -1, -1));
 
         jLabel1.setText("First Name");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, -1, -1));
@@ -215,6 +218,18 @@ public class changepassword extends javax.swing.JFrame {
         edit.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 4, -1, -1));
 
         jPanel2.add(edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, 80, 20));
+
+        jPanel3.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 330, 10, 10));
+
+        jPanel4.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 330, 10, 10));
+
+        jPanel5.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 330, 10, 10));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 670, 350));
 
@@ -406,6 +421,9 @@ String pass = changepassword1.getText();
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JTextField lastname;
     private javax.swing.JLabel lastnametext;
     private javax.swing.JLabel logintext;

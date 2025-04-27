@@ -43,6 +43,7 @@ public class resetpassword extends javax.swing.JFrame {
         emailtext1 = new javax.swing.JLabel();
         answer = new javax.swing.JTextField();
         question1 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,7 +55,7 @@ public class resetpassword extends javax.swing.JFrame {
 
         logintext.setBackground(new java.awt.Color(173, 216, 230));
         logintext.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        logintext.setForeground(new java.awt.Color(0, 153, 153));
+        logintext.setForeground(new java.awt.Color(153, 153, 153));
         logintext.setText("NEW PASSWORD");
         jPanel2.add(logintext, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, -1, -1));
 
@@ -107,6 +108,10 @@ public class resetpassword extends javax.swing.JFrame {
         question1.setText("Test");
         jPanel2.add(question1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, -1, -1));
         question1.getAccessibleContext().setAccessibleName("test");
+
+        jPanel3.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, 90, 3));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 440, 290));
 
@@ -241,6 +246,7 @@ private void loadSecurityInfo(String email) {
     private javax.swing.JLabel emailtext1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel logintext;
     private javax.swing.JTextField password;
     private javax.swing.JLabel question1;
