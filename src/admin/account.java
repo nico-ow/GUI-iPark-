@@ -68,6 +68,7 @@ public class account extends javax.swing.JFrame {
         name = new javax.swing.JLabel();
         change = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         profile = new javax.swing.JPanel();
@@ -126,6 +127,11 @@ public class account extends javax.swing.JFrame {
         change.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 3, -1, -1));
 
         jPanel5.add(change, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 120, 20));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(240, 240, 240));
+        jLabel6.setText("ACCOUNT");
+        jPanel5.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 810, 470));
 
@@ -365,6 +371,7 @@ public class account extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;

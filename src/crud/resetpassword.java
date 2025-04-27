@@ -54,9 +54,9 @@ public class resetpassword extends javax.swing.JFrame {
 
         logintext.setBackground(new java.awt.Color(173, 216, 230));
         logintext.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        logintext.setForeground(new java.awt.Color(173, 216, 230));
+        logintext.setForeground(new java.awt.Color(0, 153, 153));
         logintext.setText("NEW PASSWORD");
-        jPanel2.add(logintext, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        jPanel2.add(logintext, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, -1, -1));
 
         Signup.setBackground(new java.awt.Color(241, 185, 185));
         Signup.setText("Submit");

@@ -144,6 +144,7 @@ public class accountmanager extends javax.swing.JFrame {
         jPanel5.add(edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 170, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(240, 240, 240));
         jLabel6.setText("ACCOUNT MANAGER");
         jPanel5.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 

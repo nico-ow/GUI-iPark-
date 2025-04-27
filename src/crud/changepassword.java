@@ -84,7 +84,8 @@ public class changepassword extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         logintext.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        logintext.setText("EDIT INFORMATION");
+        logintext.setForeground(new java.awt.Color(0, 153, 153));
+        logintext.setText("CHANGE PASSWORD");
         jPanel2.add(logintext, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
 
         jLabel1.setText("First Name");

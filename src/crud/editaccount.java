@@ -33,7 +33,7 @@ public class editaccount extends javax.swing.JFrame {
     Color lightBlue = new Color(173, 216, 230);
     Color charcoal = new Color(28, 28, 28);
     Color teal = new Color(0, 128, 128);
-
+    Color white = new Color(240,240,240);
   
     
     private boolean emailExists(String email) {
