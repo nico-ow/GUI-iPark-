@@ -32,19 +32,34 @@ public class adminDB extends javax.swing.JFrame {
     Color charcoal = new Color(28, 28, 28);
     Color teal = new Color(0, 128, 128);
     Color white = new Color(240,240,240);
-    public void displayData(){
+    
+    
+    public void displayData() {
+    try {
+        connectDB dbc = new connectDB();
         
-        try{
-            connectDB dbc = new connectDB();
-            ResultSet rs = dbc.getData("SELECT * FROM user");           
-            overview.setModel(DbUtils.resultSetToTableModel(rs));
-            
-            
-        }catch(SQLException ex){
-            System.out.println("Errors"+ex.getMessage());
-        }
+        // Select only the specific columns from tbl_user
+        String query = "SELECT u_id, u_firstname, u_lastname, u_contactnumber, u_type, u_status FROM user";
+        ResultSet rs = dbc.getData(query);
         
+        // Use DbUtils to set the result set to the table
+        overview.setModel(DbUtils.resultSetToTableModel(rs));
+
+        // Change column titles
+        overview.getColumnModel().getColumn(0).setHeaderValue("ID");
+        overview.getColumnModel().getColumn(1).setHeaderValue("First Name");
+        overview.getColumnModel().getColumn(2).setHeaderValue("Last Name");
+        overview.getColumnModel().getColumn(3).setHeaderValue("Contact Number");
+        overview.getColumnModel().getColumn(4).setHeaderValue("Role");
+        overview.getColumnModel().getColumn(5).setHeaderValue("Status");
+        
+        // Refresh the table to apply the new headers
+        overview.getTableHeader().repaint();
+        
+    } catch (SQLException ex) {
+        System.out.println("Errors: " + ex.getMessage());
     }
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -63,11 +78,11 @@ public class adminDB extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         overview = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         exit = new javax.swing.JLabel();
         profile = new javax.swing.JPanel();
@@ -76,6 +91,8 @@ public class adminDB extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         accounts = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
+        logs = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -113,33 +130,33 @@ public class adminDB extends javax.swing.JFrame {
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 60, 250, 80));
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel6.setText("ADMIN DASHBOARD");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
         jPanel5.setBackground(new java.awt.Color(173, 216, 230));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         overview.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "First Name", "Last Name", "Email", "Contact Number", "Role", "Status"
             }
         ));
         jScrollPane1.setViewportView(overview);
 
         jPanel5.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 740, 260));
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         jLabel7.setText("Overview");
-        jPanel5.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 20));
+        jPanel5.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, 20));
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 760, 320));
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel6.setText("ADMIN DASHBOARD");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         mbg.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 850, 510));
 
@@ -233,6 +250,30 @@ public class adminDB extends javax.swing.JFrame {
 
         mbg.add(accounts, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 130, 30));
 
+        logs.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logsMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                logsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                logsMouseExited(evt);
+            }
+        });
+        logs.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel12.setText("LOGS");
+        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel12MouseClicked(evt);
+            }
+        });
+        logs.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 4, -1, 20));
+
+        mbg.add(logs, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 130, 30));
+
         getContentPane().add(mbg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 510));
 
         pack();
@@ -306,6 +347,25 @@ public class adminDB extends javax.swing.JFrame {
         profile.setBackground(white);
     }//GEN-LAST:event_profileMouseExited
 
+    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
+
+    }//GEN-LAST:event_jLabel12MouseClicked
+
+    private void logsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsMouseClicked
+        adminlogs log = new adminlogs();
+
+        log.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_logsMouseClicked
+
+    private void logsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsMouseEntered
+        logs.setBackground(lightGray);
+    }//GEN-LAST:event_logsMouseEntered
+
+    private void logsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsMouseExited
+        logs.setBackground(white);
+    }//GEN-LAST:event_logsMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -348,6 +408,7 @@ public class adminDB extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -360,6 +421,7 @@ public class adminDB extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel logs;
     private javax.swing.JPanel mbg;
     private javax.swing.JTable overview;
     private javax.swing.JPanel profile;

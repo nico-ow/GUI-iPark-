@@ -107,9 +107,6 @@ public class login extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         login = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
@@ -166,6 +163,11 @@ public class login extends javax.swing.JFrame {
             public void ancestorResized(java.awt.event.HierarchyEvent evt) {
             }
         });
+        forgotpassword.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                forgotpasswordMouseClicked(evt);
+            }
+        });
         jPanel2.add(forgotpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 90, -1));
 
         emailtext.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -203,15 +205,6 @@ public class login extends javax.swing.JFrame {
 
         jPanel2.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 100, 20));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/panel/icons8-100%-64.png"))); // NOI18N
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, -1, -1));
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/panel/icons8-100%-64.png"))); // NOI18N
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, -1, -1));
-
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/panel/icons8-100%-64.png"))); // NOI18N
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, -10, -1, -1));
-
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 460, 380));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ipark.png"))); // NOI18N
@@ -223,47 +216,85 @@ public class login extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
+    private void loginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseExited
+        login.setBackground(lightBlue);
+    }//GEN-LAST:event_loginMouseExited
+
+    private void loginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseEntered
+        login.setBackground(lightGray);
+    }//GEN-LAST:event_loginMouseEntered
+
+    private void loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseClicked
+        String user = username.getText().trim();
+        String pass = password.getText().trim();
+
+        if (user.isEmpty() || pass.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Username and/or password cannot be empty.", "Login Error", JOptionPane.ERROR_MESSAGE);
+            username.requestFocus();
+            return;
+        }
+
+        try {
+            // Directly use the entered username and password without hashing
+            String[] loginData = loginAcc(user, pass);
+
+            if (loginData == null) {
+                JOptionPane.showMessageDialog(this, "Incorrect username or password.", "Login Error", JOptionPane.ERROR_MESSAGE);
+                password.requestFocus();
+                return;
+            }
+
+            String[] userDetails = getUserDetails(user);
+
+            String userID = userDetails[0];
+            String firstName = userDetails[1];
+            String lastName = userDetails[2];
+            String email = userDetails[3];
+            String contactNumber = userDetails[4];
+            String accType = loginData[0];
+            String accStatus = loginData[1];
+
+            if (!"active".equalsIgnoreCase(accStatus)) {
+                JOptionPane.showMessageDialog(this, "Your account is still pending. Please contact the administrator.", "Login Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            session sess = session.getInstance();
+            sess.setU_id(userID);
+            sess.setUsername(user);
+            sess.setFirstName(firstName);
+            sess.setLastName(lastName);
+            sess.setEmail(email);
+            sess.setContact(contactNumber);
+            sess.setAcc_type(accType);
+            sess.setAcc_status(accStatus);
+
+            if (accType != null) {
+                if ("Admin".equalsIgnoreCase(accType)) {
+                    new adminDB().setVisible(true);
+                } else if ("User".equalsIgnoreCase(accType)) {
+                    new UserDB().setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(this, "Unknown user type!", "Login Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
+                this.dispose(); // Close login window
+            } else {
+                JOptionPane.showMessageDialog(this, "Incorrect username or password.", "Login Error", JOptionPane.ERROR_MESSAGE);
+                password.requestFocus();
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error during login: " + e.getMessage(), "Login Error", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        }
+
+    }//GEN-LAST:event_loginMouseClicked
+
+    private void forgotpasswordAncestorMoved(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_forgotpasswordAncestorMoved
         // TODO add your handling code here:
-    }//GEN-LAST:event_usernameActionPerformed
-
-    private void usernameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameFocusLost
-        Font smallFont = new Font("Arial", Font.PLAIN, 10); 
-username.setFont(smallFont); 
-requireduser.setFont(smallFont); 
-
-String user = username.getText();
-
-if (user.isEmpty()) {
-    username.setForeground(Color.RED);
-    requireduser.setText("Username is required");
-    requireduser.setForeground(Color.RED);
-} else {
-    username.setForeground(Color.BLACK);
-    requireduser.setText("");
-}
-
-username.repaint();
-    }//GEN-LAST:event_usernameFocusLost
-
-    private void passwordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFocusLost
-Font smallFont = new Font("Arial", Font.PLAIN, 10);
-password.setFont(smallFont); 
-requiredpass.setFont(smallFont); 
-
-String user = password.getText();
-
-if (user.isEmpty()) {
-    password.setForeground(Color.RED);
-    requiredpass.setText("Password is required");
-    requiredpass.setForeground(Color.RED);
-} else {
-    username.setForeground(Color.BLACK);
-    requiredpass.setText("");
-}
-
-password.repaint();
-    }//GEN-LAST:event_passwordFocusLost
+    }//GEN-LAST:event_forgotpasswordAncestorMoved
 
     private void registerbuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerbuttonMouseClicked
         register reg = new register();
@@ -272,85 +303,53 @@ password.repaint();
         this.dispose();
     }//GEN-LAST:event_registerbuttonMouseClicked
 
-    private void loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseClicked
-      String user = username.getText().trim();
-String pass = password.getText().trim();
+    private void passwordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFocusLost
+        Font smallFont = new Font("Arial", Font.PLAIN, 10);
+        password.setFont(smallFont);
+        requiredpass.setFont(smallFont);
 
-if (user.isEmpty() || pass.isEmpty()) {
-    JOptionPane.showMessageDialog(this, "Username and/or password cannot be empty.", "Login Error", JOptionPane.ERROR_MESSAGE);
-    username.requestFocus();
-    return;
-}
+        String user = password.getText();
 
-try {
-    // Directly use the entered username and password without hashing
-    String[] loginData = loginAcc(user, pass);
-
-    if (loginData == null) {
-        JOptionPane.showMessageDialog(this, "Incorrect username or password.", "Login Error", JOptionPane.ERROR_MESSAGE);
-        password.requestFocus();
-        return;
-    }
-
-    String[] userDetails = getUserDetails(user);
-
-    String userID = userDetails[0];
-    String firstName = userDetails[1];
-    String lastName = userDetails[2];
-    String email = userDetails[3];
-    String contactNumber = userDetails[4];
-    String accType = loginData[0];
-    String accStatus = loginData[1];
-
-    if (!"active".equalsIgnoreCase(accStatus)) {
-        JOptionPane.showMessageDialog(this, "Your account is still pending. Please contact the administrator.", "Login Error", JOptionPane.ERROR_MESSAGE);
-        return;
-    }
-
-    session sess = session.getInstance();
-    sess.setU_id(userID);
-    sess.setUsername(user);
-    sess.setFirstName(firstName);
-    sess.setLastName(lastName);
-    sess.setEmail(email);
-    sess.setContact(contactNumber);
-    sess.setAcc_type(accType);
-    sess.setAcc_status(accStatus);
-
-    if (accType != null) {
-        if ("Admin".equalsIgnoreCase(accType)) {
-            new adminDB().setVisible(true);
-        } else if ("User".equalsIgnoreCase(accType)) {
-            new UserDB().setVisible(true);
+        if (user.isEmpty()) {
+            password.setForeground(Color.RED);
+            requiredpass.setText("Password is required");
+            requiredpass.setForeground(Color.RED);
         } else {
-            JOptionPane.showMessageDialog(this, "Unknown user type!", "Login Error", JOptionPane.ERROR_MESSAGE);
-            return;
+            username.setForeground(Color.BLACK);
+            requiredpass.setText("");
         }
 
-        this.dispose(); // Close login window
-    } else {
-        JOptionPane.showMessageDialog(this, "Incorrect username or password.", "Login Error", JOptionPane.ERROR_MESSAGE);
-        password.requestFocus();
-    }
+        password.repaint();
+    }//GEN-LAST:event_passwordFocusLost
 
-} catch (Exception e) {
-    JOptionPane.showMessageDialog(this, "Error during login: " + e.getMessage(), "Login Error", JOptionPane.ERROR_MESSAGE);
-    e.printStackTrace();
-}
-  
-    }//GEN-LAST:event_loginMouseClicked
-
-    private void loginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseEntered
-         login.setBackground(lightGray);
-    }//GEN-LAST:event_loginMouseEntered
-
-    private void loginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseExited
-        login.setBackground(lightBlue);
-    }//GEN-LAST:event_loginMouseExited
-
-    private void forgotpasswordAncestorMoved(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_forgotpasswordAncestorMoved
+    private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_forgotpasswordAncestorMoved
+    }//GEN-LAST:event_usernameActionPerformed
+
+    private void usernameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameFocusLost
+        Font smallFont = new Font("Arial", Font.PLAIN, 10);
+        username.setFont(smallFont);
+        requireduser.setFont(smallFont);
+
+        String user = username.getText();
+
+        if (user.isEmpty()) {
+            username.setForeground(Color.RED);
+            requireduser.setText("Username is required");
+            requireduser.setForeground(Color.RED);
+        } else {
+            username.setForeground(Color.BLACK);
+            requireduser.setText("");
+        }
+
+        username.repaint();
+    }//GEN-LAST:event_usernameFocusLost
+
+    private void forgotpasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotpasswordMouseClicked
+        forgotpassword fp = new forgotpassword();
+        fp.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_forgotpasswordMouseClicked
 
     /**
      * @param args the command line arguments
@@ -394,9 +393,6 @@ try {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel login;

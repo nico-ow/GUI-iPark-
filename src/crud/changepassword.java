@@ -67,12 +67,13 @@ public class changepassword extends javax.swing.JFrame {
         cnumbertext = new javax.swing.JLabel();
         requiredcnumber = new javax.swing.JLabel();
         idfieldtext1 = new javax.swing.JLabel();
-        Signup = new javax.swing.JButton();
         backlogin = new javax.swing.JLabel();
         contactnumber = new javax.swing.JTextField();
         passwordtext = new javax.swing.JLabel();
         requiredpassword = new javax.swing.JLabel();
         idfieldtext = new javax.swing.JLabel();
+        edit = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -165,21 +166,6 @@ public class changepassword extends javax.swing.JFrame {
         idfieldtext1.setText("ID:");
         jPanel2.add(idfieldtext1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, -1, -1));
 
-        Signup.setBackground(new java.awt.Color(241, 185, 185));
-        Signup.setText("Edit");
-        Signup.setBorderPainted(false);
-        Signup.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                SignupFocusLost(evt);
-            }
-        });
-        Signup.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SignupActionPerformed(evt);
-            }
-        });
-        jPanel2.add(Signup, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, 120, 19));
-
         backlogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logout (2).png"))); // NOI18N
         backlogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -207,6 +193,27 @@ public class changepassword extends javax.swing.JFrame {
         requiredpassword.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         jPanel2.add(requiredpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, 190, 10));
         jPanel2.add(idfieldtext, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 54, 42, -1));
+
+        edit.setBackground(new java.awt.Color(173, 216, 230));
+        edit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                editMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                editMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                editMouseExited(evt);
+            }
+        });
+        edit.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel2.setText("Edit");
+        jLabel2.setInheritsPopupMenu(false);
+        edit.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 4, -1, -1));
+
+        jPanel2.add(edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, 80, 20));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 670, 350));
 
@@ -273,12 +280,22 @@ String pass = changepassword1.getText();
         // TODO add your handling code here:
     }//GEN-LAST:event_changepassword1ActionPerformed
 
-    private void SignupFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_SignupFocusLost
+    private void backloginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backloginMouseClicked
+        accountmanager acc = new accountmanager();
+        acc.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_backloginMouseClicked
 
-    }//GEN-LAST:event_SignupFocusLost
+    private void contactnumberFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_contactnumberFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_contactnumberFocusLost
 
-    private void SignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignupActionPerformed
+    private void contactnumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactnumberActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_contactnumberActionPerformed
 
+    private void editMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMouseClicked
+        
         if (signUpValidation()) {
 
     connectDB con = new connectDB();
@@ -297,22 +314,16 @@ String pass = changepassword1.getText();
     JOptionPane.showMessageDialog(this, "Password update error. Please fill all required fields.", "Warning", JOptionPane.WARNING_MESSAGE);
 
 }
+    }//GEN-LAST:event_editMouseClicked
 
-    }//GEN-LAST:event_SignupActionPerformed
+    private void editMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMouseEntered
+        edit.setBackground(lightBlue);
 
-    private void backloginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backloginMouseClicked
-        accountmanager acc = new accountmanager();
-        acc.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_backloginMouseClicked
+    }//GEN-LAST:event_editMouseEntered
 
-    private void contactnumberFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_contactnumberFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_contactnumberFocusLost
-
-    private void contactnumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactnumberActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_contactnumberActionPerformed
+    private void editMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMouseExited
+        edit.setBackground(lightGray);
+    }//GEN-LAST:event_editMouseExited
 
     
     private boolean signUpValidation() {
@@ -380,17 +391,18 @@ String pass = changepassword1.getText();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Signup;
     private javax.swing.JLabel backlogin;
     private javax.swing.JTextField changepassword1;
     private javax.swing.JLabel cnumbertext;
     private javax.swing.JTextField contactnumber;
+    private javax.swing.JPanel edit;
     private javax.swing.JTextField email;
     private javax.swing.JLabel emailtext;
     private javax.swing.JTextField firstname;
     private javax.swing.JLabel idfieldtext;
     private javax.swing.JLabel idfieldtext1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField lastname;

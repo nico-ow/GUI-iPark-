@@ -57,7 +57,7 @@ public class UserDB extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel5.setText("DASHBOARD");
-        mbg.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 120, 110, 30));
+        mbg.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 100, 30));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logout (2).png"))); // NOI18N
         jLabel8.setToolTipText("");
