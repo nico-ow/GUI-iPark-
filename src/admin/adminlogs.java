@@ -122,7 +122,7 @@ public class adminlogs extends javax.swing.JFrame {
 
         jPanel5.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 790, 270));
 
-        activate.setText("Activate");
+        activate.setText("ACTIVATE");
         activate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 activateActionPerformed(evt);
@@ -445,7 +445,9 @@ public class adminlogs extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel11MouseClicked
 
     private void profile1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profile1MouseClicked
-        // TODO add your handling code here:
+        account acc = new account();
+
+        acc.setVisible(true);
     }//GEN-LAST:event_profile1MouseClicked
 
     private void profile1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profile1MouseEntered

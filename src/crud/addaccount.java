@@ -93,6 +93,10 @@ public class addaccount extends javax.swing.JFrame {
         role = new javax.swing.JComboBox<>();
         passwordtext1 = new javax.swing.JLabel();
         requiredrole = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -167,8 +171,9 @@ public class addaccount extends javax.swing.JFrame {
         jPanel2.add(firstname, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 196, 30));
 
         logintext.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        logintext.setForeground(new java.awt.Color(153, 153, 153));
         logintext.setText("CREATE AN ACCOUNT");
-        jPanel2.add(logintext, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, -1, -1));
+        jPanel2.add(logintext, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         Signup.setBackground(new java.awt.Color(241, 185, 185));
         Signup.setText("Create");
@@ -288,6 +293,66 @@ public class addaccount extends javax.swing.JFrame {
 
         requiredrole.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         jPanel2.add(requiredrole, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, 190, 10));
+
+        jPanel4.setBackground(new java.awt.Color(0, 153, 153));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 320, 10, 10));
+
+        jPanel6.setBackground(new java.awt.Color(0, 153, 153));
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, 10, 10));
+
+        jPanel7.setBackground(new java.awt.Color(0, 153, 153));
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 10, 10));
+
+        jPanel8.setBackground(new java.awt.Color(0, 153, 153));
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 10, 10, 10));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 710, 340));
 
@@ -670,7 +735,11 @@ String password1 = password.getText();
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JTextField lastname;
     private javax.swing.JLabel lastnametext;
     private javax.swing.JLabel logintext;

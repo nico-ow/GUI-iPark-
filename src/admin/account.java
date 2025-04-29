@@ -57,6 +57,7 @@ public class account extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         mbg = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -124,6 +125,10 @@ public class account extends javax.swing.JFrame {
 
         jLabel1.setText("Change Password");
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, jLabel1, org.jdesktop.beansbinding.ObjectProperty.create(), jLabel1, org.jdesktop.beansbinding.BeanProperty.create("font"));
+        bindingGroup.addBinding(binding);
+
         change.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 3, -1, -1));
 
         jPanel5.add(change, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 120, 20));
@@ -228,6 +233,8 @@ public class account extends javax.swing.JFrame {
         mbg.add(account, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 130, 30));
 
         getContentPane().add(mbg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 510));
+
+        bindingGroup.bind();
 
         pack();
         setLocationRelativeTo(null);
@@ -381,5 +388,6 @@ public class account extends javax.swing.JFrame {
     private javax.swing.JPanel profile;
     private javax.swing.JLabel profilepic;
     private javax.swing.JLabel role;
+    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

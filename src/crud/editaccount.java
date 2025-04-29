@@ -87,6 +87,9 @@ public class editaccount extends javax.swing.JFrame {
         Signup = new javax.swing.JButton();
         backlogin = new javax.swing.JLabel();
         idfield = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -206,6 +209,15 @@ public class editaccount extends javax.swing.JFrame {
         });
         jPanel2.add(backlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
         jPanel2.add(idfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 47, -1, -1));
+
+        jPanel3.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
+
+        jPanel4.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, -1));
+
+        jPanel5.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 630, 330));
 
@@ -496,6 +508,9 @@ contactnumber.repaint();
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JTextField lastname;
     private javax.swing.JLabel lastnametext;
     private javax.swing.JLabel logintext;

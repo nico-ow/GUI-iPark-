@@ -118,7 +118,7 @@
                 </Container>
                 <Component class="javax.swing.JButton" name="activate">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Activate"/>
+                    <Property name="text" type="java.lang.String" value="ACTIVATE"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="activateActionPerformed"/>
